@@ -136,7 +136,7 @@ module Paperclip
 
       def exists?(style = default_style)
         if original_filename
-          instance.send("#{@paperclip_files}").where(:style => style).exists?
+          !file_for(style).nil?
         else
           false
         end
